@@ -1,10 +1,11 @@
 import React from 'react'
+import { Text } from 'react-native'
 
 const App = () => {
   return (
-    <div>
+    <Text>
       Jooj
-    </div>
+    </Text>
   )
 }
 

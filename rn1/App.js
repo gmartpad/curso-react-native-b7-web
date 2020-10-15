@@ -4,26 +4,35 @@ import styled from 'styled-components/native'
 
 const Page = styled.SafeAreaView`
 
-  flex: 1;
-  flex-direction: row;
-  /* justify-content: flex-end; */
+  /* flex: 1; */
 
 `
 const Quadrado = styled.View`
 
   background-color: ${props => props.cor};
-  flex: ${props => props.flex};
-  /* width: 50px; */
-  /* height: 50px; */
+  width: 50px;
+  height: 50px;
+
+`
+
+const Header = styled.View`
+
+  background-color: #ddd;
+  flex-direction: row;
+  justify-content: center;
+  height: 200px;
 
 `
 
 export default () => {
   return (
     <Page>
-      <Quadrado flex={1} cor="#f00"></Quadrado>
-      <Quadrado flex={1} cor="#0f0"></Quadrado>
-      <Quadrado flex={1} cor="#00f"></Quadrado>
+      <Header>
+        <Quadrado cor="#f00"></Quadrado>
+        <Quadrado style={{alignSelf: 'flex-end'}} cor="#0f0"></Quadrado>
+        <Quadrado cor="#ccc"></Quadrado>
+        <Quadrado cor="#00f"></Quadrado>
+      </Header>      
     </Page>
   )
 }

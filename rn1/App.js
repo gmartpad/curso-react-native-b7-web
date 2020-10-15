@@ -4,22 +4,24 @@ import styled from 'styled-components/native'
 
 const Page = styled.SafeAreaView`
 
-  background-color: #00f;
   flex: 1;
+  flex-direction: row;
 
 `
-const Texto = styled.Text`
+const Quadrado = styled.View`
 
-  color: ${props => props.cor};
-  font-size: 20px;
+  background-color: ${props => props.cor};
+  width: 50px;
+  height: 50px;
 
 `
 
 export default () => {
   return (
     <Page>
-      <Texto cor="#0f0" >Olá, Mundo!</Texto>
-      <Texto cor="#f00" >Olá, Galáxia!</Texto>
+      <Quadrado cor="#f00"></Quadrado>
+      <Quadrado cor="#0f0"></Quadrado>
+      <Quadrado cor="#00f"></Quadrado>
     </Page>
   )
 }

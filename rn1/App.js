@@ -1,13 +1,39 @@
-import React, { Component } from 'react'
-import { Text } from 'react-native'
+import React from 'react'
+import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
 
-const App = () => {
+export default () => {
   return (
-    <Text>
-      Jooj
-    </Text>
+    <SafeAreaView style={styles.page}>
+      <Text style={styles.texto}>Olá, Mundo!</Text>
+      <Text style={[styles.texto, {fontSize: 16}]}>Olá, Galáxia!</Text>
+    </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+ page: {
+   width: 200,
+   height: 200,
+   backgroundColor: '#00ffff'
+ },
+ texto: {
+   fontSize: 20,
+   fontStyle: 'italic'
+ } 
+})
+
+//-----------------------------------------------------
+
+// import React, { Component } from 'react'
+// import { Text } from 'react-native'
+
+// const App = () => {
+//   return (
+//     <Text>
+//       Jooj
+//     </Text>
+//   )
+// }
 
 // class App extends Component {
   
@@ -20,4 +46,4 @@ const App = () => {
 //   }
 // }
 
-export default App
+// export default App

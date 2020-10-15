@@ -6,22 +6,24 @@ const Page = styled.SafeAreaView`
 
   flex: 1;
   flex-direction: row;
+  /* justify-content: flex-end; */
 
 `
 const Quadrado = styled.View`
 
   background-color: ${props => props.cor};
-  width: 50px;
-  height: 50px;
+  flex: ${props => props.flex};
+  /* width: 50px; */
+  /* height: 50px; */
 
 `
 
 export default () => {
   return (
     <Page>
-      <Quadrado cor="#f00"></Quadrado>
-      <Quadrado cor="#0f0"></Quadrado>
-      <Quadrado cor="#00f"></Quadrado>
+      <Quadrado flex={1} cor="#f00"></Quadrado>
+      <Quadrado flex={1} cor="#0f0"></Quadrado>
+      <Quadrado flex={1} cor="#00f"></Quadrado>
     </Page>
   )
 }

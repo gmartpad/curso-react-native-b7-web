@@ -2,14 +2,31 @@ import React, { useState } from 'react'
 import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
 import styled from 'styled-components/native'
 
+const Input = styled.TextInput`
+  width: 200px;
+  height: 40px;
+  border: 1px solid #000;
+`
+
 const Hello = ({ frase }) => {
 
   const [name, setName] = useState('Gabriel Martins Padoin')
 
+  // const mudarTexto = (texto) => {
+  //   setName(texto)
+  // }
+
   return(
-    <Text>
-      {frase} - {name}
-    </Text>
+    <View>
+      <Text>
+        {name}
+      </Text>
+      <Input 
+        value={name}
+        onChangeText={t=>setName(t)} 
+        placeholder="passa o radinho"
+      />
+    </View>
   )
 }
 

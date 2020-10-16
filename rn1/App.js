@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
+import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native'
 import styled from 'styled-components/native'
 
 const Input = styled.TextInput`
@@ -11,21 +11,27 @@ const Input = styled.TextInput`
 const Hello = ({ frase }) => {
 
   const [name, setName] = useState('Gabriel Martins Padoin')
+  const [backupName, setBackupName] = useState('');
 
-  // const mudarTexto = (texto) => {
-  //   setName(texto)
-  // }
+  const mudarTexto = (texto) => {
+    setName(texto)
+  }
+
+  const handleClick = () => {
+    setBackupName(name);
+  }
 
   return(
     <View>
       <Text>
-        {name}
+        {backupName}
       </Text>
       <Input 
         value={name}
-        onChangeText={t=>setName(t)} 
+        onChangeText={mudarTexto} 
         placeholder="passa o radinho"
       />
+      <Button onPress={handleClick} title="Salvar" />
     </View>
   )
 }

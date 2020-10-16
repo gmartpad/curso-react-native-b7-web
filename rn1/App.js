@@ -1,38 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
 import styled from 'styled-components/native'
 
+const Hello = ({ frase }) => {
+
+  const [name, setName] = useState('Gabriel Martins Padoin')
+
+  return(
+    <Text>
+      {frase} - {name}
+    </Text>
+  )
+}
+
 const Page = styled.SafeAreaView`
 
-  /* flex: 1; */
-
-`
-const Quadrado = styled.View`
-
-  background-color: ${props => props.cor};
-  width: 50px;
-  height: 50px;
-
-`
-
-const Header = styled.View`
-
-  background-color: #ddd;
-  flex-direction: row;
+  flex: 1;
   justify-content: center;
-  height: 200px;
+  align-items: center;
 
 `
-
 export default () => {
+
   return (
     <Page>
-      <Header>
-        <Quadrado cor="#f00"></Quadrado>
-        <Quadrado style={{alignSelf: 'flex-end'}} cor="#0f0"></Quadrado>
-        <Quadrado cor="#ccc"></Quadrado>
-        <Quadrado cor="#00f"></Quadrado>
-      </Header>      
+      <Hello frase="dai mermão passa o radinho"/>  
     </Page>
   )
 }

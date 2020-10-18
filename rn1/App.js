@@ -8,30 +8,47 @@ const Input = styled.TextInput`
   border: 1px solid #000;
 `
 
+const Quadrado = styled.View`
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  border: 3px dashed #000 !important;
+  margin-top: 30px;
+`
+
 const Hello = ({ frase }) => {
 
   const [name, setName] = useState('Gabriel Martins Padoin')
-  const [backupName, setBackupName] = useState('');
+  const [mostrar, setMostrar] = useState(false)
 
   const mudarTexto = (texto) => {
     setName(texto)
   }
 
   const handleClick = () => {
-    setBackupName(name);
+    setMostrar(!mostrar);
   }
 
   return(
     <View>
-      <Text>
-        {backupName}
-      </Text>
+
       <Input 
         value={name}
         onChangeText={mudarTexto} 
         placeholder="passa o radinho"
       />
-      <Button onPress={handleClick} title="Salvar" />
+
+      <Button onPress={handleClick} title={mostrar ? "Ocultar Nome" : "Mostrar Nome"} />
+
+      {mostrar && 
+      
+        <Quadrado>
+          <Text>{name}</Text>
+        </Quadrado>
+      
+      }
+
     </View>
   )
 }

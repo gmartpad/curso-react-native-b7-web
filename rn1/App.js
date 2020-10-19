@@ -30,19 +30,86 @@ const Input = styled.TextInput`
 
 `
 
+const CalcButton = styled.Button`
+
+  margin-top: 10px;
+
+`
+
+const ResultArea = styled.View`
+
+  width: 100%;
+  margin-top: 30px;
+  background-color: #EEE;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+
+`
+
+const ResultItemTitle = styled.Text`
+
+  font-size: 18px;
+  font-weight: bold;
+
+`
+
+const ResultItem = styled.Text`
+
+  font-size: 15px;
+
+`
+
 export default () => {
 
   const [bill, setBill] = useState('0')
+  const [tip, setTip] = useState(0)
+
+  const calc = () => {
+    let numericBill = parseFloat(bill)
+
+    if(numericBill)
+    {
+      setTip( ((10/100) * numericBill).toFixed(2) )
+    }
+    else
+    {
+      alert('Digite o valor da conta!')
+    }
+
+  }
   
   return (
     <Page>
+
       <HeaderText>Calculadora de Gorjeta</HeaderText>
+
       <Input 
         placeholder='Quanto deu a conta?'
         keyboardType='numeric'
         value={bill}
         onChangeText={n=>setBill(n)}
       />
+
+      <CalcButton 
+        title="Calcular"
+        onPress={calc}
+      />
+
+      {tip > 0 &&
+      
+        <ResultArea>
+          <ResultItemTitle>Valor da Conta</ResultItemTitle>
+          <ResultItem>R$ {bill ? parseFloat(bill).toFixed(2) : 0}</ResultItem>
+          <ResultItemTitle>Valor da Gorjeta</ResultItemTitle>
+          <ResultItem>R$ {tip} (10%)</ResultItem>
+          <ResultItemTitle>Valor Total</ResultItemTitle>
+          <ResultItem>R$ {parseFloat(bill)+parseFloat(tip) ? (parseFloat(bill)+parseFloat(tip)).toFixed(2) : 0}</ResultItem>
+        </ResultArea>
+      
+      }
+        
+
     </Page>
   )
 }
